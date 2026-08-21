@@ -42,8 +42,8 @@ export const hero = {
     'PMO / Project Management',
     'Petroleum Engineer',
   ],
-  tagline: 'Ships production-grade AI systems end to end.',
-  sub: 'Python developer and Petroleum Engineering graduate working across data, ML, and analytics. Two live LLM applications backed by FastAPI, Docker, automated tests, and CI — plus upstream oil & gas domain experience from ONGC.',
+  tagline: 'Builds and deploys AI/ML systems end to end.',
+  sub: 'Python developer and Petroleum Engineering graduate building and deploying end-to-end AI/ML applications. Two live LLM apps backed by FastAPI, Docker, automated tests, and CI — plus upstream oil & gas domain experience from ONGC.',
   location: 'Visakhapatnam, India · open to relocation',
   ctas: {
     primary: { label: 'View Projects', target: 'projects' },
