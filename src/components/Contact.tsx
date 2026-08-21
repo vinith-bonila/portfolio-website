@@ -17,6 +17,7 @@ import {
 } from '../data/portfolio'
 import { Reveal } from './ui/Reveal'
 import { MagneticButton } from './ui/MagneticButton'
+import { ContactForm } from './ContactForm'
 
 function CurrentlyBlock() {
   return (
@@ -179,8 +180,15 @@ export function Contact() {
           </div>
         </Reveal>
 
-        {/* Currently status */}
+        {/* Contact form (mailto) */}
         <Reveal delay={0.28}>
+          <div className="mt-10 max-w-xl">
+            <ContactForm />
+          </div>
+        </Reveal>
+
+        {/* Currently status */}
+        <Reveal delay={0.34}>
           <div className="mt-10 max-w-xl">
             <CurrentlyBlock />
           </div>
