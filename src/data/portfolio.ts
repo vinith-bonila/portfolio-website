@@ -56,7 +56,7 @@ export const systemProfile = {
   title: 'System Profile',
   metrics: [
     { label: 'AI Systems', value: '02', tag: 'Live' },
-    { label: 'Projects', value: '05' },
+    { label: 'Projects', value: '06' },
     { label: 'Tests', value: '24+' },
     { label: 'Intents', value: '19' },
   ] as { label: string; value: string; tag?: string }[],
@@ -148,6 +148,43 @@ export const projects: Project[] = [
       'Grounded answer + page citations',
     ],
     images: ['docmind.png'],
+  },
+  {
+    id: 'autobi',
+    title: 'AutoBI',
+    subtitle: 'Automated Business Intelligence Platform',
+    year: '2026',
+    live: 'https://autobi-frontend-41it.onrender.com/',
+    stack: [
+      'Python',
+      'FastAPI',
+      'Pandas',
+      'DuckDB',
+      'PostgreSQL',
+      'Next.js',
+    ],
+    summary:
+      'Turns raw CSV/TSV uploads into interactive dashboards — automating data profiling, cleaning, KPI discovery, and chart recommendation end to end.',
+    details: [
+      'Built an analytics platform that converts raw CSV/TSV uploads into interactive dashboards, automating data profiling, cleaning, KPI discovery and chart recommendation through a FastAPI and Pandas/DuckDB pipeline.',
+      'Shipped dashboards with dynamic filters, daily-to-yearly time aggregation, saved views, shareable links and PDF/Excel/CSV export, backed by PostgreSQL persistence and 241 automated backend tests; deployed on Render.',
+    ],
+    metrics: [
+      { label: 'Backend tests', value: 241 },
+      { label: 'Pipeline stages', value: 4 },
+      { label: 'Export formats', value: 3 },
+    ],
+    highlights: ['241 backend tests', 'CSV → live dashboard'],
+    architecture: [
+      'CSV / TSV upload',
+      'Profile & type detection',
+      'Clean — auditable, non-destructive',
+      'Analyse — trends, correlations, anomalies',
+      'KPI & chart selection',
+      'Interactive dashboard',
+      'Export — PDF / Excel / CSV',
+    ],
+    images: ['autobi-dashboard.png', 'autobi-landing.png', 'autobi-analysis.png'],
   },
   {
     id: 'vini-ai',
@@ -384,8 +421,8 @@ export type ProofStat = {
 
 /** The count-up "proof of work" band directly under the hero. */
 export const proofOfWork: ProofStat[] = [
-  { value: 2, pad: 2, label: 'Live AI systems' },
-  { value: 24, suffix: '+', label: 'Automated tests' },
+  { value: 3, pad: 2, label: 'Live apps' },
+  { value: 265, suffix: '+', label: 'Automated tests' },
   { value: 19, label: 'NLP intents' },
   { value: 15, suffix: '+', label: 'Skill handlers' },
   { value: 1, pad: 2, label: 'Petroleum domain' },

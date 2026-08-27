@@ -8,6 +8,9 @@ placeholder — nothing breaks.
 | File name             | Project            | What to use                                            |
 | --------------------- | ------------------ | ------------------------------------------------------ |
 | `docmind.png`         | DocMind            | The DocMind app screenshot (chat UI)                   |
+| `autobi-dashboard.png`| AutoBI             | The generated **dashboard** screenshot (cover)         |
+| `autobi-landing.png`  | AutoBI             | The AutoBI **landing / upload** page                   |
+| `autobi-analysis.png` | AutoBI             | The "Analysing your dataset…" **progress** screen      |
 | `vini.png`            | VINI AI            | The VINI AI app screenshot (voice assistant UI)        |
 | `namma-yatri-1.png`   | Namma Yatri        | The Power BI **Trip Dashboard** (cover)                |
 | `namma-yatri-2.png`   | Namma Yatri        | The Namma Yatri banner / branding image                |
