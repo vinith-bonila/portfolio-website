@@ -22,13 +22,13 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-24 lg:pt-20"
+      className="relative flex min-h-[100svh] items-center overflow-hidden py-24"
       aria-label="Introduction"
     >
       {/* Ambient glow (the full 3D lives in the right column, not the bg) */}
       <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-content grid-cols-1 items-center gap-10 px-5 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 px-6 md:px-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-20">
         {/* ── Identity (60%) ── */}
         <div>
           <motion.p {...fadeUp(0.05)} className="eyebrow flex items-center gap-3">
@@ -41,7 +41,7 @@ export function Hero() {
 
           <motion.h1
             {...fadeUp(0.12)}
-            className="mt-5 text-6xl font-bold leading-[0.95] tracking-tight sm:text-7xl md:text-8xl"
+            className="mt-5 text-6xl font-bold leading-[0.95] tracking-tight sm:text-7xl md:text-8xl xl:text-9xl"
           >
             {firstName} <span className="text-accent">{lastName}</span>
           </motion.h1>
@@ -56,7 +56,7 @@ export function Hero() {
 
           <motion.p
             {...fadeUp(0.3)}
-            className="mt-6 max-w-xl text-muted md:text-lg"
+            className="mt-6 max-w-xl text-muted md:text-lg xl:text-xl"
           >
             {hero.sub}
           </motion.p>

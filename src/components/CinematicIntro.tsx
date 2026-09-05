@@ -3,33 +3,18 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 
 const EASE = [0.22, 1, 0.36, 1] as const
-const KEY = 'vb-intro-seen'
 
 /**
- * Short cinematic opener: ambient dark screen → name → "DATA × AI × ANALYTICS",
- * then auto-dismisses (or the visitor clicks "Enter experience"). Shows once per
- * browser session, and collapses to an instant, skippable card under reduced
- * motion. Never blocks content for long.
+ * Short cinematic opener on every load: a dark screen with ambient particles →
+ * "Welcome to Vinith's World" → "DATA × AI × ANALYTICS", then auto-dismisses
+ * (or the visitor clicks "Enter"). Collapses to an instant, skippable card
+ * under reduced motion. Never blocks content for long.
  */
 export function CinematicIntro() {
   const reduced = useReducedMotion()
-  const [show, setShow] = useState(() => {
-    if (typeof window === 'undefined') return false
-    try {
-      return sessionStorage.getItem(KEY) !== '1'
-    } catch {
-      return true
-    }
-  })
+  const [show, setShow] = useState(true)
 
-  const done = () => {
-    try {
-      sessionStorage.setItem(KEY, '1')
-    } catch {
-      /* ignore */
-    }
-    setShow(false)
-  }
+  const done = () => setShow(false)
 
   // Lock scroll while the intro is up.
   useEffect(() => {
@@ -94,16 +79,24 @@ export function CinematicIntro() {
             initial={{ opacity: 0, y: reduced ? 0 : 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: reduced ? 0.2 : 0.7, ease: EASE, delay: 0.15 }}
-            className="text-center"
+            className="px-6 text-center"
           >
-            <div className="text-4xl font-bold tracking-tight text-[#EDF0F0] sm:text-6xl md:text-7xl">
-              Vinith Bonila
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: reduced ? 0.1 : 0.25, duration: 0.5 }}
+              className="font-mono text-[10px] uppercase tracking-[0.4em] text-muted sm:text-xs"
+            >
+              Welcome to
+            </motion.div>
+            <div className="mt-4 text-4xl font-bold tracking-tight text-[#EDF0F0] sm:text-6xl md:text-7xl">
+              Vinith&rsquo;s <span className="text-accent">World</span>
             </div>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: reduced ? 0.25 : 0.9, duration: 0.6 }}
-              className="mt-4 font-mono text-xs uppercase tracking-[0.35em] text-accent sm:text-sm"
+              transition={{ delay: reduced ? 0.25 : 0.95, duration: 0.6 }}
+              className="mt-5 font-mono text-xs uppercase tracking-[0.32em] text-accent sm:text-sm"
             >
               Data × AI × Analytics
             </motion.div>
