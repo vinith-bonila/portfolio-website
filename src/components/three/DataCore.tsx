@@ -169,7 +169,7 @@ export default function DataCore({
       <Canvas
         frameloop={active ? 'always' : 'never'}
         dpr={[1, maxDpr]}
-        camera={{ position: [0, 0, 4.3], fov: 45 }}
+        camera={{ position: [0, 0, 5.4], fov: 45 }}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       >
         <ambientLight intensity={0.6} />

@@ -545,8 +545,6 @@ export const shortcuts: Shortcut[] = [
 export const photography = {
   vsco: 'https://vsco.co/vinith1510',
   vscoHandle: 'vsco.co/vinith1510',
-  intro:
-    'Away from the terminal I shoot — birds, moons, boats, and whatever the light is doing. I led IIPE\u2019s photography club through a full rebrand to ShutrX and grew its reach past 60K.',
   stats: [
     { label: 'Club', value: 'ShutrX \u00b7 President' },
     { label: 'Team led', value: '25+' },

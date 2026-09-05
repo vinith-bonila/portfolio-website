@@ -30,8 +30,8 @@ const ICONS: Record<string, ComponentType<LucideProps>> = {
 // Angular position (degrees) of each node around the globe, tuned for an even,
 // reference-like spread. Index matches `heroNodes`.
 const ANGLES = [150, 90, 22, -30, -72, -128, 182]
-const RX = 47
-const RY = 43
+const RX = 45
+const RY = 41
 
 type NodePos = { x: number; y: number; left: boolean }
 

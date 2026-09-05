@@ -24,9 +24,9 @@ export function Photography() {
       <div className="mx-auto max-w-content px-5 md:px-8">
         <SectionHeading
           index="03"
-          eyebrow="Beyond the code"
-          title="I frame light, too."
-          description={photography.intro}
+          eyebrow="Beyond Data"
+          title="Photography"
+          description="Seeing stories beyond the numbers."
         />
 
         {/* Club stats + VSCO link */}
