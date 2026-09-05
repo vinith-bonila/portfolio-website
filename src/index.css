@@ -155,3 +155,64 @@
     background-size: 100% 1.5px;
   }
 }
+
+/* ─── Data Universe additions ─────────────────────────────── */
+
+/* Lenis smooth scroll (recommended base styles) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@layer base {
+  /* Custom cursor: hide the native pointer on fine-pointer devices, but keep a
+     real caret on form fields so typing stays natural. */
+  html.has-custom-cursor,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button,
+  html.has-custom-cursor [data-cursor],
+  html.has-custom-cursor [role='button'] {
+    cursor: none;
+  }
+  html.has-custom-cursor input,
+  html.has-custom-cursor textarea,
+  html.has-custom-cursor select {
+    cursor: auto;
+  }
+}
+
+@layer components {
+  /* Ambient hero glow — the always-present premium base under the 3D layer,
+     and the full experience on devices that skip WebGL. */
+  .hero-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse 55% 45% at 50% 38%,
+        rgba(45, 226, 197, 0.1),
+        transparent 70%
+      ),
+      radial-gradient(
+        ellipse 40% 30% at 70% 60%,
+        rgba(20, 199, 168, 0.06),
+        transparent 70%
+      );
+  }
+
+  /* Futuristic glass panel used by spatial UI sections. */
+  .glass {
+    background: color-mix(in srgb, var(--bg-raise) 72%, transparent);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    border: 1px solid var(--hairline);
+  }
+}

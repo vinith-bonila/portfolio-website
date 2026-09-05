@@ -4,6 +4,7 @@ import { hero, socials } from '../data/portfolio'
 import { Typewriter } from './ui/Typewriter'
 import { MagneticButton } from './ui/MagneticButton'
 import { HeroSystemPanel } from './HeroSystemPanel'
+import { HeroBackground } from './three/HeroBackground'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -19,10 +20,12 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center pt-20"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-20"
       aria-label="Introduction"
+      data-cursor="explore"
     >
-      <div className="mx-auto grid w-full max-w-content grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-[minmax(0,1fr)_320px]">
+      <HeroBackground />
+      <div className="relative z-10 mx-auto grid w-full max-w-content grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-[minmax(0,1fr)_320px]">
        <div>
         <motion.p
           {...fadeUp(0.05)}

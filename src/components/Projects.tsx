@@ -41,6 +41,7 @@ function ProjectCard({
         type="button"
         onClick={onOpen}
         aria-label={`Open details for ${project.title}`}
+        data-cursor="view"
         className="absolute inset-0 z-10"
       />
 
