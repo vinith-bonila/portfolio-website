@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, Moon, Sun } from 'lucide-react'
 import { nav, site } from '../data/portfolio'
 import { useActiveSection } from '../hooks/useActiveSection'
+import { Logo } from './ui/Logo'
 import type { Theme } from '../hooks/useTheme'
 
 const sectionIds = nav.map((n) => n.id)
@@ -76,11 +77,10 @@ export function Nav({
       >
         <a
           href="#home"
-          className="group flex items-center gap-2 font-mono text-sm font-medium"
+          className="group flex items-center gap-2.5 font-mono text-sm font-medium"
+          aria-label={`${site.name} — home`}
         >
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-accent text-ink-950">
-            <span className="text-[13px] font-bold">V</span>
-          </span>
+          <Logo className="h-8 w-8 transition-transform duration-300 group-hover:scale-105" />
           <span className="hidden sm:inline">{site.name}</span>
         </a>
 

@@ -227,3 +227,18 @@ html.lenis body {
     border: 1px solid var(--hairline);
   }
 }
+
+@keyframes contactGlow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.06);
+  }
+}
+.contact-glow {
+  animation: contactGlow 7s ease-in-out infinite;
+}

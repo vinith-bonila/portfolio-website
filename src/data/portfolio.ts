@@ -10,6 +10,7 @@ export type NavItem = { id: string; label: string }
 
 export const nav: NavItem[] = [
   { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'analytics', label: 'Analytics' },
@@ -94,6 +95,48 @@ export const heroNodes: {
   { label: 'Projects', icon: 'box', target: 'projects' },
   { label: 'Skills', icon: 'layers', target: 'skills' },
 ]
+
+/** About section — intro, interactive focus facets, and a tech snapshot. */
+export const about = {
+  intro: [
+    "I'm Vinith — a Python developer and Petroleum Engineering graduate who builds and deploys end-to-end AI/ML and data products.",
+    'I ship: two live LLM apps and a live BI platform, backed by FastAPI, Docker, automated tests, and CI. And I turn messy, multi-table data into decisions with SQL, Power BI, and Python.',
+  ],
+  facets: [
+    {
+      key: 'Data',
+      icon: 'database',
+      desc: 'SQL, pandas and NumPy, EDA across multi-table datasets — cleaning and joining raw records into demand, rating, and performance insight.',
+    },
+    {
+      key: 'AI / ML',
+      icon: 'brain',
+      desc: 'RAG, LLMs, embeddings, and evaluation (recall@k, MRR, faithfulness). Two live LLM apps served via FastAPI, containerised with Docker.',
+    },
+    {
+      key: 'Analytics',
+      icon: 'barChart',
+      desc: 'KPI discovery, DAX, and dashboards — an automated BI platform (AutoBI) plus Power BI reports that make patterns explorable.',
+    },
+    {
+      key: 'Engineering',
+      icon: 'server',
+      desc: 'Backend APIs, unit testing, CI/CD, and Docker — plus upstream petroleum and SCADA domain experience from ONGC.',
+    },
+  ] as { key: string; icon: string; desc: string }[],
+  stack: [
+    'Python',
+    'SQL',
+    'FastAPI',
+    'Docker',
+    'Power BI',
+    'pandas',
+    'scikit-learn',
+    'FAISS',
+    'spaCy',
+    'Git',
+  ],
+}
 
 export type Metric = {
   label: string

@@ -84,18 +84,30 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="scroll-mt-24 py-24 md:py-32">
-      <div className="mx-auto max-w-content px-5 md:px-8">
+    <section
+      id="contact"
+      className="relative scroll-mt-24 overflow-hidden py-24 md:py-32"
+    >
+      {/* Cinematic backdrop — a calm central glow */}
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="contact-glow absolute left-1/2 top-1/3 h-[620px] w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(45,226,197,0.1),transparent_62%)]" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-content px-5 md:px-8">
         <Reveal>
           <span className="eyebrow flex items-center gap-3">
-            <span className="font-mono text-xs text-accent">04</span>
-            Get in touch
+            <span className="font-mono text-xs text-accent">05</span>
+            Turning data into decisions
           </span>
         </Reveal>
 
         <Reveal delay={0.05}>
-          <h2 className="mt-6 max-w-3xl text-4xl font-bold tracking-tight md:text-6xl">
-            {contact.heading}
+          <h2 className="mt-6 max-w-4xl text-5xl font-bold leading-[0.98] tracking-tight md:text-7xl">
+            Let&rsquo;s build something{' '}
+            <span className="text-accent">with data.</span>
           </h2>
         </Reveal>
 

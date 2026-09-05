@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Nav } from './components/Nav'
 import { Hero } from './components/Hero'
 import { ProofOfWork } from './components/ProofOfWork'
+import { About } from './components/About'
 import { Projects } from './components/Projects'
 import { KeyboardShortcuts } from './components/KeyboardShortcuts'
 import { CinematicIntro } from './components/CinematicIntro'
@@ -53,6 +54,7 @@ export default function App() {
       <main>
         <Hero />
         <ProofOfWork />
+        <About />
         <Projects />
         <Suspense fallback={<SectionFallback />}>
           <Skills />
