@@ -15,8 +15,8 @@ import { useTheme } from './hooks/useTheme'
 const Skills = lazy(() =>
   import('./components/Skills').then((m) => ({ default: m.Skills })),
 )
-const DataViz = lazy(() =>
-  import('./components/DataViz').then((m) => ({ default: m.DataViz })),
+const Photography = lazy(() =>
+  import('./components/Photography').then((m) => ({ default: m.Photography })),
 )
 const Experience = lazy(() =>
   import('./components/Experience').then((m) => ({ default: m.Experience })),
@@ -66,7 +66,7 @@ function Portfolio() {
         <Projects />
         <Suspense fallback={<SectionFallback />}>
           <Skills />
-          <DataViz />
+          <Photography />
           <Experience />
           <Contact />
         </Suspense>

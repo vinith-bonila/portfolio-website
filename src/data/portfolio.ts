@@ -13,7 +13,7 @@ export const nav: NavItem[] = [
   { id: 'about', label: 'About' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
-  { id: 'analytics', label: 'Analytics' },
+  { id: 'photography', label: 'Photography' },
   { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ]
@@ -537,3 +537,24 @@ export const shortcuts: Shortcut[] = [
   { keys: '?', label: 'Toggle this help' },
   { keys: 'Esc', label: 'Close modal / help' },
 ]
+
+/**
+ * Photography — the other half of the story. Files live in
+ * /public/images/photography/. To add more, drop the file in and add a line here.
+ */
+export const photography = {
+  vsco: 'https://vsco.co/vinith1510',
+  vscoHandle: 'vsco.co/vinith1510',
+  intro:
+    'Away from the terminal I shoot — birds, moons, boats, and whatever the light is doing. I led IIPE\u2019s photography club through a full rebrand to ShutrX and grew its reach past 60K.',
+  stats: [
+    { label: 'Club', value: 'ShutrX \u00b7 President' },
+    { label: 'Team led', value: '25+' },
+    { label: 'Reach', value: '60K+' },
+  ] as { label: string; value: string }[],
+  photos: [
+    { src: 'photography/egret.jpg', alt: 'A little egret perched before moored fishing boats at golden hour' },
+    { src: 'photography/moon.jpg', alt: 'A full moon captured in detail against a black sky' },
+    { src: 'photography/sails.jpg', alt: 'A traditional sailboat crossing turquoise water, in three frames' },
+  ] as { src: string; alt: string }[],
+}
