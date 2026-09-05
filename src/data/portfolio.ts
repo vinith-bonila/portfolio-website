@@ -553,8 +553,21 @@ export const photography = {
     { label: 'Reach', value: '60K+' },
   ] as { label: string; value: string }[],
   photos: [
-    { src: 'photography/egret.jpg', alt: 'A little egret perched before moored fishing boats at golden hour' },
-    { src: 'photography/moon.jpg', alt: 'A full moon captured in detail against a black sky' },
-    { src: 'photography/sails.jpg', alt: 'A traditional sailboat crossing turquoise water, in three frames' },
+    {
+      src: 'photography/photo-1.jpg',
+      alt: 'A white egret standing on a mooring rope, framed against golden fishing boats thrown out of focus behind it',
+    },
+    {
+      src: 'photography/photo-2.jpg',
+      alt: 'A beachside food cart glowing under a rainbow umbrella at night, vendors in silhouette against distant city lights',
+    },
+    {
+      src: 'photography/photo-3.jpg',
+      alt: 'A black-and-white long exposure: a hand-painted toy goods truck circled by swirling trails of light',
+    },
+    {
+      src: 'photography/photo-4.jpg',
+      alt: 'The full moon in sharp detail, craters and maria picked out against a black sky',
+    },
   ] as { src: string; alt: string }[],
 }

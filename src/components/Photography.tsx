@@ -53,17 +53,17 @@ export function Photography() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-60px' }}
-          className="columns-2 gap-4 md:columns-3 [&>*]:mb-4"
+          className="grid grid-cols-2 gap-4 md:grid-cols-4"
         >
           {photography.photos.map((p) => (
             <motion.figure
               key={p.src}
               variants={staggerItem}
               data-cursor="view"
-              className="group relative block break-inside-avoid overflow-hidden rounded-xl border border-[var(--hairline)] bg-[var(--bg-raise)]"
+              className="group relative block aspect-[2/3] overflow-hidden rounded-xl border border-[var(--hairline)] bg-[var(--bg-raise)]"
             >
-              <div className="[&_img]:transition-transform [&_img]:duration-[700ms] group-hover:[&_img]:scale-[1.06]">
-                <Screenshot src={p.src} alt={p.alt} />
+              <div className="h-full w-full [&_img]:transition-transform [&_img]:duration-[700ms] group-hover:[&_img]:scale-[1.06]">
+                <Screenshot src={p.src} alt={p.alt} cover />
               </div>
               <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/75 to-transparent p-3 font-mono text-[10px] text-white/90 transition-transform duration-300 group-hover:translate-y-0">
                 {p.alt}
