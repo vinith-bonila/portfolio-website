@@ -1,15 +1,24 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Camera, ArrowUpRight } from 'lucide-react'
 import { photography } from '../data/portfolio'
 import { SectionHeading } from './ui/SectionHeading'
 import { Reveal, staggerParent, staggerItem } from './ui/Reveal'
 import { Screenshot } from './ui/Screenshot'
+import { PhotoLightbox } from './PhotoLightbox'
 
 /**
  * Photography — the human counterweight to the engineering sections. A masonry
  * gallery (mixed portrait/square frames flow naturally) linking out to VSCO.
  */
 export function Photography() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const photos = photography.photos
+  const step = (delta: number) =>
+    setOpenIndex((i) =>
+      i === null ? i : (i + delta + photos.length) % photos.length,
+    )
+
   return (
     <section id="photography" className="scroll-mt-24 py-24 md:py-32">
       <div className="mx-auto max-w-content px-5 md:px-8">
@@ -55,11 +64,10 @@ export function Photography() {
           viewport={{ once: true, margin: '-60px' }}
           className="grid grid-cols-2 gap-4 md:grid-cols-4"
         >
-          {photography.photos.map((p) => (
+          {photos.map((p, i) => (
             <motion.figure
               key={p.src}
               variants={staggerItem}
-              data-cursor="view"
               className="group relative block aspect-[2/3] overflow-hidden rounded-xl border border-[var(--hairline)] bg-[var(--bg-raise)]"
             >
               <div className="h-full w-full [&_img]:transition-transform [&_img]:duration-[700ms] group-hover:[&_img]:scale-[1.06]">
@@ -68,6 +76,13 @@ export function Photography() {
               <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/75 to-transparent p-3 font-mono text-[10px] text-white/90 transition-transform duration-300 group-hover:translate-y-0">
                 {p.alt}
               </figcaption>
+              <button
+                type="button"
+                onClick={() => setOpenIndex(i)}
+                aria-label={`View photo: ${p.alt}`}
+                data-cursor="view"
+                className="absolute inset-0 z-10"
+              />
             </motion.figure>
           ))}
         </motion.div>
@@ -85,6 +100,17 @@ export function Photography() {
           </a>
         </Reveal>
       </div>
+
+      <AnimatePresence>
+        {openIndex !== null && (
+          <PhotoLightbox
+            photos={photos}
+            index={openIndex}
+            onClose={() => setOpenIndex(null)}
+            onStep={step}
+          />
+        )}
+      </AnimatePresence>
     </section>
   )
 }
