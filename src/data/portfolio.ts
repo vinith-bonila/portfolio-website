@@ -305,18 +305,38 @@ export const projects: Project[] = [
   {
     id: 'namma-yatri',
     title: 'Namma Yatri Trip Analytics',
-    subtitle: 'BI & Data Analytics',
+    subtitle: 'Funnel Analysis & Data Forensics',
     year: '2024',
     categories: ['Data Analytics'],
     repo: 'https://github.com/vinith-bonila/Namma-Yatri',
-    stack: ['Python', 'SQL', 'Power BI', 'DAX', 'Excel'],
-    summary:
-      'Analytics over multi-table ride-hailing data, surfacing demand, conversion, and peak-period patterns across Bengaluru assemblies.',
-    details: [
-      'Performed EDA with SQL and Python on multi-table ride datasets, cleaning and joining raw records to surface demand, conversion, and peak-period patterns',
-      'Built an interactive Power BI trip dashboard — completed trips, searches, estimates, quotes, driver earnings, and conversion rate — with DAX measures, geo drill-through, and assembly-level filters',
+    stack: [
+      'Power BI',
+      'DAX',
+      'Power Query (M)',
+      'SQL',
+      'Window Functions',
+      'SQLite',
+      'DuckDB',
+      'Excel',
+      'Python',
     ],
-    highlights: ['Power BI', 'SQL + Python'],
+    summary:
+      'Funnel analysis of 2,161 ride searches across 37 Bengaluru areas — mapping a 45.49% booking conversion and correcting a headline metric that was overstated sevenfold.',
+    details: [
+      'Built an end-to-end funnel analysis of 2,161 ride searches across 37 Bengaluru assembly areas, identifying a 45.49% search-to-ride conversion rate and isolating the estimate stage as the largest single point of loss at 403 searches (18.65%).',
+      'Found and corrected a headline metric that was overstated sevenfold: driver cancellations were being counted as 1,021 by an unscoped flag aggregation that swept in 884 searches which never reached the driver stage. Scoped to searches that actually received a quote, the true figure is 137 (10.73%), reconciling exactly against the 1,277 quoted searches.',
+      'Reverse-engineered the Power BI model from the .pbix binary — an XPress9-compressed Analysis Services backup — to document 7 tables, 7 relationships, the Power Query merge logic, and the single authored DAX measure, surfacing an orphaned payment table with no relationships and an unused auto-generated date table.',
+      'Diagnosed the funnel flag structure as a strict six-pattern prefix ladder, proving the two cancellation columns are mutually exclusive parallel outcomes rather than sequential stages, and that otp_entered duplicates end_ride on all 2,161 rows.',
+      'Refactored a 3,562-line SQL monolith into eight themed, documented files, fixing eight defects along the way — four queries that could not execute on any engine, one returning the wrong result, and MySQL-only syntax blocking portability.',
+      'Verified all 45 SQL statements execute unchanged on SQLite and DuckDB with identical results, cross-checking every KPI against the source workbook and the published dashboard.',
+    ],
+    metrics: [
+      { label: 'Ride searches', value: 2161 },
+      { label: 'Conversion', value: 45.49, decimals: 2, suffix: '%' },
+      { label: 'Assembly areas', value: 37 },
+      { label: 'SQL statements', value: 45 },
+    ],
+    highlights: ['45.49% conversion', '7× metric corrected'],
     images: ['namma-yatri-1.jpg', 'namma-yatri-2.jpg'],
   },
   {
