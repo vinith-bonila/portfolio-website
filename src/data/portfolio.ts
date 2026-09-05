@@ -124,6 +124,8 @@ export type Project = {
   summary: string
   details: string[]
   metrics?: Metric[]
+  /** Filter categories, e.g. "AI / ML", "Data Analytics", "Simulation". */
+  categories: string[]
   /** Two short at-a-glance stats shown on the project card. */
   highlights?: string[]
   /** Ordered architecture/pipeline nodes; renders an interactive flow strip. */
@@ -141,6 +143,7 @@ export const projects: Project[] = [
     title: 'DocMind',
     subtitle: 'AI Document Assistant (RAG)',
     year: '2026',
+    categories: ['AI / ML'],
     live: 'https://docmind-x.streamlit.app',
     repo: 'https://github.com/vinith-bonila',
     stack: [
@@ -183,6 +186,7 @@ export const projects: Project[] = [
     title: 'AutoBI',
     subtitle: 'Automated Business Intelligence Platform',
     year: '2026',
+    categories: ['Data Analytics', 'AI / ML'],
     live: 'https://autobi-frontend-41it.onrender.com/',
     stack: [
       'Python',
@@ -220,6 +224,7 @@ export const projects: Project[] = [
     title: 'VINI AI',
     subtitle: 'NLP-First Voice Assistant',
     year: '2026',
+    categories: ['AI / ML'],
     live: 'https://vini-ai-powered-nlp-voice-assistant.streamlit.app/',
     stack: [
       'Python',
@@ -259,6 +264,7 @@ export const projects: Project[] = [
     title: 'Namma Yatri Trip Analytics',
     subtitle: 'BI & Data Analytics',
     year: '2024',
+    categories: ['Data Analytics'],
     repo: 'https://github.com/vinith-bonila/Namma-Yatri',
     stack: ['Python', 'SQL', 'Power BI', 'DAX', 'Excel'],
     summary:
@@ -275,6 +281,7 @@ export const projects: Project[] = [
     title: 'Zomato Sales & User Analytics',
     subtitle: 'BI & Data Analytics',
     year: '2024',
+    categories: ['Data Analytics'],
     repo: 'https://github.com/vinith-bonila/Zomato-Cuisine-Popularity-Top-Orders',
     stack: ['Python', 'SQL', 'Power BI', 'DAX', 'Excel'],
     summary:
@@ -291,6 +298,7 @@ export const projects: Project[] = [
     title: 'Enhanced Oil Recovery & CO₂ Sequestration Simulation',
     subtitle: 'Reservoir Simulation · CCUS',
     year: '2026',
+    categories: ['Simulation'],
     stack: ['CMG GEM', 'WinProp'],
     summary:
       '3D compositional reservoir modeling of long-term CO₂ storage in deep saline aquifers for safe geological sequestration.',
