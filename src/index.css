@@ -242,3 +242,16 @@ html.lenis body {
 .contact-glow {
   animation: contactGlow 7s ease-in-out infinite;
 }
+
+/* Focus mode — quiet the ambient motion for maximum readability. */
+html[data-focus] .contact-glow {
+  animation: none;
+  opacity: 0.5;
+}
+html[data-focus] .animate-ping,
+html[data-focus] .animate-blink {
+  animation: none;
+}
+html[data-focus] .texture-bg::after {
+  opacity: 0.5;
+}

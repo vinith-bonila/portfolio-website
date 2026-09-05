@@ -8,8 +8,8 @@ import { KeyboardShortcuts } from './components/KeyboardShortcuts'
 import { CinematicIntro } from './components/CinematicIntro'
 import { Cursor } from './components/ui/Cursor'
 import { SmoothScrollProvider } from './providers/SmoothScroll'
+import { MotionModeProvider, useMotionMode } from './providers/MotionMode'
 import { useTheme } from './hooks/useTheme'
-import { useReducedMotion } from './hooks/useReducedMotion'
 
 // Lazy-load below-the-fold sections to keep the initial bundle lean.
 const Skills = lazy(() =>
@@ -31,11 +31,19 @@ function SectionFallback() {
 }
 
 export default function App() {
+  return (
+    <MotionModeProvider>
+      <Portfolio />
+    </MotionModeProvider>
+  )
+}
+
+function Portfolio() {
   const { theme, toggle } = useTheme()
-  const reduced = useReducedMotion()
+  const { calm } = useMotionMode()
 
   return (
-    <SmoothScrollProvider enabled={!reduced}>
+    <SmoothScrollProvider enabled={!calm}>
       {/* Fixed grid + noise + glow texture layer */}
       <div className="texture-bg" aria-hidden="true" />
 

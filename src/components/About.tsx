@@ -5,12 +5,12 @@ import {
   BarChart3,
   Server,
   ArrowRight,
-  FileDown,
   type LucideProps,
 } from 'lucide-react'
 import { about, hero } from '../data/portfolio'
 import { SectionHeading } from './ui/SectionHeading'
 import { Reveal, staggerParent, staggerItem } from './ui/Reveal'
+import { ResumeMenu } from './ResumeMenu'
 import { motion } from 'framer-motion'
 
 const ICONS: Record<string, ComponentType<LucideProps>> = {
@@ -77,15 +77,7 @@ export function About() {
                   className="transition-transform group-hover:translate-x-0.5"
                 />
               </a>
-              <a
-                href={hero.ctas.secondary.href}
-                download
-                data-cursor="open"
-                className="inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--bg-raise)] px-6 py-3 font-mono text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-              >
-                Resume
-                <FileDown size={16} />
-              </a>
+              <ResumeMenu />
             </div>
           </Reveal>
 

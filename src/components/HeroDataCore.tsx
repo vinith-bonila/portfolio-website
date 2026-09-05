@@ -13,6 +13,7 @@ import { heroNodes } from '../data/portfolio'
 import { useDeviceCapability } from '../hooks/useDeviceCapability'
 import { useIsDark } from '../hooks/useIsDark'
 import { useSmoothScrollTo } from '../providers/SmoothScroll'
+import { useMotionMode } from '../providers/MotionMode'
 
 const DataCore = lazy(() => import('./three/DataCore'))
 
@@ -54,7 +55,9 @@ function positions(): NodePos[] {
 export function HeroDataCore() {
   const cap = useDeviceCapability()
   const dark = useIsDark()
-  const use3D = cap.ready && cap.webgl && !cap.reducedMotion && cap.tier !== 'low'
+  const { calm } = useMotionMode()
+  const use3D =
+    cap.ready && cap.webgl && !cap.reducedMotion && !calm && cap.tier !== 'low'
   const [focused, setFocused] = useState<number | null>(null)
   const scrollTo = useSmoothScrollTo()
   const pos = positions()

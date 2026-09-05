@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useReducedMotion } from '../hooks/useReducedMotion'
+import { useMotionMode } from '../providers/MotionMode'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -11,7 +11,8 @@ const EASE = [0.22, 1, 0.36, 1] as const
  * under reduced motion. Never blocks content for long.
  */
 export function CinematicIntro() {
-  const reduced = useReducedMotion()
+  // Focus mode (or OS reduced-motion) collapses the intro to a brief, static card.
+  const { calm: reduced } = useMotionMode()
   const [show, setShow] = useState(true)
 
   const done = () => setShow(false)

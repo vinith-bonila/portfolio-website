@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, Moon, Sun } from 'lucide-react'
+import { Menu, X, Moon, Sun, Sparkles, Focus } from 'lucide-react'
+import { useMotionMode } from '../providers/MotionMode'
 import { nav, site } from '../data/portfolio'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { Logo } from './ui/Logo'
@@ -33,6 +34,28 @@ function ThemeToggle({
           {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
         </motion.span>
       </AnimatePresence>
+    </button>
+  )
+}
+
+/** Switches between the full cinematic experience and a calm, readable view. */
+function ModeToggle() {
+  const { focus, toggle } = useMotionMode()
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-pressed={focus}
+      data-cursor="open"
+      title={focus ? 'Switch to Experience mode' : 'Switch to Focus mode'}
+      aria-label={focus ? 'Switch to Experience mode' : 'Switch to Focus mode'}
+      className={`grid h-9 w-9 place-items-center rounded-full border transition-colors ${
+        focus
+          ? 'border-accent bg-accent/10 text-accent'
+          : 'border-[var(--hairline)] bg-[var(--bg-raise)] text-[var(--text)] hover:border-accent hover:text-accent'
+      }`}
+    >
+      {focus ? <Sparkles size={16} /> : <Focus size={16} />}
     </button>
   )
 }
@@ -105,6 +128,7 @@ export function Nav({
         </ul>
 
         <div className="flex items-center gap-2">
+          <ModeToggle />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
           <button
             type="button"
