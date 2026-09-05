@@ -81,6 +81,7 @@ export function ProjectModal({
   return (
     <motion.div
       className="fixed inset-0 z-[60] overflow-y-auto overscroll-contain"
+      data-lenis-prevent
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

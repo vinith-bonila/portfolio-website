@@ -79,6 +79,7 @@ export function KeyboardShortcuts() {
       {helpOpen && (
         <motion.div
           className="fixed inset-0 z-[70] flex items-center justify-center p-4"
+          data-lenis-prevent
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
