@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowRight, FileDown } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowRight } from 'lucide-react'
 import { hero, socials } from '../data/portfolio'
 import { MagneticButton } from './ui/MagneticButton'
 import { HeroDataCore } from './HeroDataCore'
 import { HeroProfileStrip } from './HeroProfileStrip'
+import { ResumeMenu } from './ResumeMenu'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -77,14 +78,7 @@ export function Hero() {
               />
             </MagneticButton>
 
-            <MagneticButton
-              href={hero.ctas.secondary.href}
-              download
-              className="group inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--bg-raise)] px-6 py-3 font-mono text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-            >
-              {hero.ctas.secondary.label}
-              <FileDown size={16} />
-            </MagneticButton>
+            <ResumeMenu />
           </motion.div>
 
           {/* Socials */}

@@ -49,6 +49,11 @@ export const hero = {
     primary: { label: 'View Projects', target: 'projects' },
     secondary: { label: 'Download Resume', href: '/resume.pdf' },
   },
+  /** Role-tailored resumes offered from the Download Resume dropdown. */
+  resumes: [
+    { label: 'AI / Data Science', href: '/resume-ai-data-science.pdf' },
+    { label: 'Data Analyst', href: '/resume-data-analyst.pdf' },
+  ] as { label: string; href: string }[],
 }
 
 /** The horizontal "system profile" proof strip beneath the hero content. */
