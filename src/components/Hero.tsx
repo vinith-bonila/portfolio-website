@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ArrowDown, FileDown, MapPin } from 'lucide-react'
+import { Github, Linkedin, Mail, ArrowRight, FileDown } from 'lucide-react'
 import { hero, socials } from '../data/portfolio'
-import { Typewriter } from './ui/Typewriter'
 import { MagneticButton } from './ui/MagneticButton'
-import { HeroSystemPanel } from './HeroSystemPanel'
-import { HeroBackground } from './three/HeroBackground'
+import { HeroDataCore } from './HeroDataCore'
+import { HeroProfileStrip } from './HeroProfileStrip'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -17,111 +16,112 @@ function fadeUp(delay: number) {
 }
 
 export function Hero() {
+  const [firstName, ...restName] = hero.name.split(' ')
+  const lastName = restName.join(' ')
+
   return (
     <section
       id="home"
-      className="relative flex min-h-[100svh] items-center overflow-hidden pt-20"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-24 lg:pt-20"
       aria-label="Introduction"
     >
-      <HeroBackground />
-      <div className="relative z-10 mx-auto grid w-full max-w-content grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-[minmax(0,1fr)_320px]">
-       <div>
-        <motion.p
-          {...fadeUp(0.05)}
-          className="eyebrow flex items-center gap-3"
-        >
-          <span className="relative flex h-2 w-2" aria-hidden="true">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-          </span>
-          {hero.status}
-        </motion.p>
+      {/* Ambient glow (the full 3D lives in the right column, not the bg) */}
+      <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
 
-        <motion.h1
-          {...fadeUp(0.12)}
-          className="mt-6 text-[13vw] font-bold leading-[0.92] tracking-tight sm:text-7xl md:text-8xl lg:text-[7rem]"
-        >
-          {hero.name}
-        </motion.h1>
+      <div className="relative z-10 mx-auto grid w-full max-w-content grid-cols-1 items-center gap-10 px-5 md:px-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]">
+        {/* ── Identity (60%) ── */}
+        <div>
+          <motion.p {...fadeUp(0.05)} className="eyebrow flex items-center gap-3">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+            </span>
+            {hero.status}
+          </motion.p>
 
-        <motion.div
-          {...fadeUp(0.2)}
-          className="mt-5 font-mono text-lg text-muted sm:text-xl md:text-2xl"
-        >
-          <span className="text-accent">&gt;</span>{' '}
-          <Typewriter words={hero.roles} className="text-[var(--text)]" />
-        </motion.div>
-
-        <motion.p
-          {...fadeUp(0.28)}
-          className="mt-8 max-w-2xl text-xl font-medium leading-snug md:text-2xl"
-        >
-          {hero.tagline}
-        </motion.p>
-
-        <motion.p
-          {...fadeUp(0.34)}
-          className="mt-5 max-w-2xl text-muted md:text-lg"
-        >
-          {hero.sub}
-        </motion.p>
-
-        <motion.div
-          {...fadeUp(0.42)}
-          className="mt-6 flex items-center gap-2 font-mono text-sm text-muted"
-        >
-          <MapPin size={15} className="text-accent" />
-          {hero.location}
-        </motion.div>
-
-        {/* CTAs */}
-        <motion.div
-          {...fadeUp(0.5)}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
-          <MagneticButton
-            href={`#${hero.ctas.primary.target}`}
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-mono text-sm font-medium text-ink-950 transition-shadow hover:shadow-[0_0_30px_-6px_rgba(45,226,197,0.6)]"
+          <motion.h1
+            {...fadeUp(0.12)}
+            className="mt-5 text-6xl font-bold leading-[0.95] tracking-tight sm:text-7xl md:text-8xl"
           >
-            {hero.ctas.primary.label}
-            <ArrowDown
-              size={16}
-              className="transition-transform group-hover:translate-y-0.5"
-            />
-          </MagneticButton>
+            {firstName} <span className="text-accent">{lastName}</span>
+          </motion.h1>
 
-          <MagneticButton
-            href={hero.ctas.secondary.href}
-            download
-            className="group inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--bg-raise)] px-6 py-3 font-mono text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+          <motion.div
+            {...fadeUp(0.2)}
+            className="mt-4 font-mono text-base uppercase tracking-[0.28em] text-muted sm:text-lg md:text-xl"
           >
-            {hero.ctas.secondary.label}
-            <FileDown size={16} />
-          </MagneticButton>
-        </motion.div>
+            Data <span className="text-accent">×</span> AI{' '}
+            <span className="text-accent">×</span> Analytics
+          </motion.div>
 
-        {/* Socials */}
-        <motion.div {...fadeUp(0.58)} className="mt-10 flex items-center gap-5">
-          {[
-            { href: socials.github, label: 'GitHub', Icon: Github },
-            { href: socials.linkedin, label: 'LinkedIn', Icon: Linkedin },
-            { href: `mailto:${socials.email}`, label: 'Email', Icon: Mail },
-          ].map(({ href, label, Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel={href.startsWith('http') ? 'noreferrer noopener' : undefined}
-              aria-label={label}
-              className="text-muted transition-colors hover:text-accent"
+          <motion.p
+            {...fadeUp(0.3)}
+            className="mt-6 max-w-xl text-muted md:text-lg"
+          >
+            {hero.sub}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            {...fadeUp(0.4)}
+            className="mt-8 flex flex-wrap items-center gap-4"
+          >
+            <MagneticButton
+              href={`#${hero.ctas.primary.target}`}
+              className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 font-mono text-sm font-medium text-ink-950 transition-shadow hover:shadow-[0_0_30px_-6px_rgba(45,226,197,0.6)]"
             >
-              <Icon size={20} />
-            </a>
-          ))}
-        </motion.div>
-       </div>
+              {hero.ctas.primary.label}
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover:translate-x-0.5"
+              />
+            </MagneticButton>
 
-        <HeroSystemPanel />
+            <MagneticButton
+              href={hero.ctas.secondary.href}
+              download
+              className="group inline-flex items-center gap-2 rounded-full border border-[var(--hairline)] bg-[var(--bg-raise)] px-6 py-3 font-mono text-sm font-medium transition-colors hover:border-accent hover:text-accent"
+            >
+              {hero.ctas.secondary.label}
+              <FileDown size={16} />
+            </MagneticButton>
+          </motion.div>
+
+          {/* Socials */}
+          <motion.div {...fadeUp(0.48)} className="mt-7 flex items-center gap-5">
+            {[
+              { href: socials.github, label: 'GitHub', Icon: Github },
+              { href: socials.linkedin, label: 'LinkedIn', Icon: Linkedin },
+              { href: `mailto:${socials.email}`, label: 'Email', Icon: Mail },
+            ].map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noreferrer noopener' : undefined}
+                aria-label={label}
+                className="text-muted transition-colors hover:text-accent"
+              >
+                <Icon size={20} />
+              </a>
+            ))}
+          </motion.div>
+
+          {/* System profile strip */}
+          <motion.div {...fadeUp(0.56)} className="mt-9">
+            <HeroProfileStrip />
+          </motion.div>
+        </div>
+
+        {/* ── Interactive data core (40%) — desktop only ── */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: EASE, delay: 0.3 }}
+          className="hidden lg:block"
+        >
+          <HeroDataCore />
+        </motion.div>
       </div>
 
       {/* Scroll cue */}

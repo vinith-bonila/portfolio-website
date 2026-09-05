@@ -51,20 +51,42 @@ export const hero = {
   },
 }
 
-/** The "system profile" readout panel in the hero. */
+/** The horizontal "system profile" proof strip beneath the hero content. */
 export const systemProfile = {
   title: 'System Profile',
-  metrics: [
-    { label: 'AI Systems', value: '02', tag: 'Live' },
-    { label: 'Projects', value: '06' },
-    { label: 'Tests', value: '24+' },
-    { label: 'Intents', value: '19' },
-  ] as { label: string; value: string; tag?: string }[],
-  status: [
-    { label: 'Status', value: 'Open' },
-    { label: 'Location', value: 'IN' },
-  ] as { label: string; value: string }[],
+  live: true,
+  stats: [
+    { label: 'Projects', value: '6+', icon: 'folder' },
+    { label: 'Technologies', value: '15+', icon: 'cpu' },
+    { label: 'Focus Areas', value: 'Data · AI · Analytics', icon: 'target' },
+    {
+      label: 'Status',
+      value: 'Open to Opportunities',
+      icon: 'activity',
+      accent: true,
+    },
+  ] as {
+    label: string
+    value: string
+    icon: string
+    accent?: boolean
+  }[],
 }
+
+/** Interactive skill/section nodes orbiting the hero data core. */
+export const heroNodes: {
+  label: string
+  icon: string
+  target: string
+}[] = [
+  { label: 'Python', icon: 'code', target: 'skills' },
+  { label: 'AI / ML', icon: 'brain', target: 'skills' },
+  { label: 'SQL', icon: 'database', target: 'skills' },
+  { label: 'Power BI', icon: 'barChart', target: 'skills' },
+  { label: 'Analytics', icon: 'lineChart', target: 'skills' },
+  { label: 'Projects', icon: 'box', target: 'projects' },
+  { label: 'Skills', icon: 'layers', target: 'skills' },
+]
 
 export type Metric = {
   label: string
