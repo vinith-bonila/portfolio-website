@@ -4,9 +4,22 @@ import * as THREE from 'three'
 import type { DeviceTier } from '../../hooks/useDeviceCapability'
 
 /** A digital data-globe: faint lat/long wireframe + a field of surface points. */
-function Globe({ tier, focused }: { tier: DeviceTier; focused: boolean }) {
+function Globe({
+  tier,
+  focused,
+  dark,
+}: {
+  tier: DeviceTier
+  focused: boolean
+  dark: boolean
+}) {
   const group = useRef<THREE.Group>(null)
   const pointCount = tier === 'high' ? 900 : 450
+  // On white, teal is too pale — deepen the wireframe/points; and skip the
+  // dark inner fill (which reads as a grey ball on a light background).
+  const lineColor = dark ? '#2DE2C5' : '#0B8F79'
+  const lineOpacity = dark ? 0.12 : 0.22
+  const pointColor = dark ? '#2DE2C5' : '#0B8F79'
 
   const surface = useMemo(() => {
     const arr = new Float32Array(pointCount * 3)
@@ -37,17 +50,19 @@ function Globe({ tier, focused }: { tier: DeviceTier; focused: boolean }) {
       <mesh>
         <sphereGeometry args={[1.4, 26, 20]} />
         <meshBasicMaterial
-          color="#2DE2C5"
+          color={lineColor}
           wireframe
           transparent
-          opacity={0.12}
+          opacity={lineOpacity}
         />
       </mesh>
-      {/* inner glow */}
-      <mesh scale={0.98}>
-        <sphereGeometry args={[1.4, 32, 32]} />
-        <meshBasicMaterial color="#0A2E29" transparent opacity={0.35} />
-      </mesh>
+      {/* inner glow — dark theme only (a grey ball on white otherwise) */}
+      {dark && (
+        <mesh scale={0.98}>
+          <sphereGeometry args={[1.4, 32, 32]} />
+          <meshBasicMaterial color="#0A2E29" transparent opacity={0.35} />
+        </mesh>
+      )}
       {/* surface data points */}
       <points>
         <bufferGeometry>
@@ -55,7 +70,7 @@ function Globe({ tier, focused }: { tier: DeviceTier; focused: boolean }) {
         </bufferGeometry>
         <pointsMaterial
           size={0.035}
-          color="#2DE2C5"
+          color={pointColor}
           transparent
           opacity={0.9}
           sizeAttenuation
@@ -67,7 +82,7 @@ function Globe({ tier, focused }: { tier: DeviceTier; focused: boolean }) {
 }
 
 /** Sparse ambient particles behind the globe. */
-function Particles({ count }: { count: number }) {
+function Particles({ count, dark }: { count: number; dark: boolean }) {
   const ref = useRef<THREE.Points>(null)
   const positions = useMemo(() => {
     const arr = new Float32Array(count * 3)
@@ -91,9 +106,9 @@ function Particles({ count }: { count: number }) {
       </bufferGeometry>
       <pointsMaterial
         size={0.02}
-        color="#3FA88F"
+        color={dark ? '#3FA88F' : '#14C7A8'}
         transparent
-        opacity={0.4}
+        opacity={dark ? 0.4 : 0.5}
         sizeAttenuation
         depthWrite={false}
       />
@@ -121,9 +136,11 @@ function Rig({ children }: { children: ReactNode }) {
 export default function DataCore({
   tier,
   focused = false,
+  dark = true,
 }: {
   tier: DeviceTier
   focused?: boolean
+  dark?: boolean
 }) {
   const wrapRef = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(true)
@@ -158,9 +175,9 @@ export default function DataCore({
         <ambientLight intensity={0.6} />
         <pointLight position={[3, 2, 4]} intensity={14} color="#2DE2C5" />
         <Rig>
-          <Globe tier={tier} focused={focused} />
+          <Globe tier={tier} focused={focused} dark={dark} />
         </Rig>
-        <Particles count={particles} />
+        <Particles count={particles} dark={dark} />
       </Canvas>
     </div>
   )
