@@ -1,31 +1,8 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { useReducedMotion } from '../hooks/useReducedMotion'
+import { MotionModeCtx } from './motionModeContext'
 
 const KEY = 'vb-focus-mode'
-
-type MotionMode = {
-  /** Focus mode explicitly enabled by the visitor. */
-  focus: boolean
-  /** True when heavy motion should be skipped (focus mode OR OS reduced-motion). */
-  calm: boolean
-  toggle: () => void
-}
-
-const Ctx = createContext<MotionMode>({
-  focus: false,
-  calm: false,
-  toggle: () => {},
-})
-
-export function useMotionMode() {
-  return useContext(Ctx)
-}
 
 /**
  * Two viewing modes:
@@ -57,8 +34,8 @@ export function MotionModeProvider({ children }: { children: ReactNode }) {
   const calm = focus || reduced
 
   return (
-    <Ctx.Provider value={{ focus, calm, toggle: () => setFocus((f) => !f) }}>
+    <MotionModeCtx.Provider value={{ focus, calm, toggle: () => setFocus((f) => !f) }}>
       {children}
-    </Ctx.Provider>
+    </MotionModeCtx.Provider>
   )
 }

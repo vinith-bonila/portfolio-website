@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X, Moon, Sun, Sparkles, Focus } from 'lucide-react'
-import { useMotionMode } from '../providers/MotionMode'
+import { useMotionMode } from '../hooks/useMotionMode'
 import { nav, site } from '../data/portfolio'
 import { useActiveSection } from '../hooks/useActiveSection'
 import { Logo } from './ui/Logo'

@@ -3,7 +3,8 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { Briefcase, Users, GraduationCap, Award } from 'lucide-react'
 import { timeline, certifications, type TimelineItem } from '../data/portfolio'
 import { SectionHeading } from './ui/SectionHeading'
-import { Reveal, staggerParent, staggerItem } from './ui/Reveal'
+import { Reveal } from './ui/Reveal'
+import { staggerParent, staggerItem } from '../lib/animations'
 
 const kindIcon: Record<TimelineItem['kind'], typeof Briefcase> = {
   work: Briefcase,

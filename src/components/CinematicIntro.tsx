@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { useMotionMode } from '../providers/MotionMode'
+import { useMotionMode } from '../hooks/useMotionMode'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -32,7 +32,6 @@ export function CinematicIntro() {
     if (!show) return
     const t = setTimeout(done, reduced ? 1200 : 3000)
     return () => clearTimeout(t)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show, reduced])
 
   // Allow Enter/Escape to skip.
@@ -43,7 +42,6 @@ export function CinematicIntro() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show])
 
   return (

@@ -1,5 +1,6 @@
-import { motion, type Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 import type { ReactNode } from 'react'
+import { staggerParent } from '../../lib/animations'
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -27,23 +28,6 @@ export function Reveal({
       {children}
     </MotionTag>
   )
-}
-
-/** Parent that staggers its Reveal-like children. Pair with `staggerItem`. */
-export const staggerParent: Variants = {
-  hidden: {},
-  show: {
-    transition: { staggerChildren: 0.08, delayChildren: 0.04 },
-  },
-}
-
-export const staggerItem: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.46, ease: EASE },
-  },
 }
 
 export function StaggerGroup({

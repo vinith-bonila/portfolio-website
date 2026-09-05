@@ -8,7 +8,8 @@ import { KeyboardShortcuts } from './components/KeyboardShortcuts'
 import { CinematicIntro } from './components/CinematicIntro'
 import { Cursor } from './components/ui/Cursor'
 import { SmoothScrollProvider } from './providers/SmoothScroll'
-import { MotionModeProvider, useMotionMode } from './providers/MotionMode'
+import { MotionModeProvider } from './providers/MotionMode'
+import { useMotionMode } from './hooks/useMotionMode'
 import { useTheme } from './hooks/useTheme'
 
 // Lazy-load below-the-fold sections to keep the initial bundle lean.

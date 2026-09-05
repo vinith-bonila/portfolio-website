@@ -12,8 +12,8 @@ import {
 import { heroNodes } from '../data/portfolio'
 import { useDeviceCapability } from '../hooks/useDeviceCapability'
 import { useIsDark } from '../hooks/useIsDark'
-import { useSmoothScrollTo } from '../providers/SmoothScroll'
-import { useMotionMode } from '../providers/MotionMode'
+import { useSmoothScrollTo } from '../hooks/useSmoothScrollTo'
+import { useMotionMode } from '../hooks/useMotionMode'
 
 const DataCore = lazy(() => import('./three/DataCore'))
 

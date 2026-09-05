@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { proofOfWork } from '../data/portfolio'
 import { CountUp } from './ui/CountUp'
-import { staggerParent, staggerItem } from './ui/Reveal'
+import { staggerParent, staggerItem } from '../lib/animations'
 
 /** Count-up "proof of work" band directly beneath the hero. */
 export function ProofOfWork() {

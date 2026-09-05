@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { skills } from '../data/portfolio'
 import { SectionHeading } from './ui/SectionHeading'
-import { staggerParent, staggerItem } from './ui/Reveal'
+import { staggerParent, staggerItem } from '../lib/animations'
 
 export function Skills() {
   return (

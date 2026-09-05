@@ -545,27 +545,33 @@ export const shortcuts: Shortcut[] = [
 export const photography = {
   vsco: 'https://vsco.co/vinith1510',
   vscoHandle: 'vsco.co/vinith1510',
+  /** Honest framing of the creative side — no invented clients or awards. */
+  note: 'The same eye that goes looking for patterns in data goes looking for them in light. Shot across wildlife, street, long-exposure and astro.',
   stats: [
-    { label: 'Club', value: 'ShutrX \u00b7 President' },
+    { label: 'Club', value: 'ShutrX · President' },
     { label: 'Team led', value: '25+' },
     { label: 'Reach', value: '60K+' },
   ] as { label: string; value: string }[],
   photos: [
     {
       src: 'photography/photo-1.jpg',
+      tag: 'Wildlife',
       alt: 'A white egret standing on a mooring rope, framed against golden fishing boats thrown out of focus behind it',
     },
     {
       src: 'photography/photo-2.jpg',
+      tag: 'Street',
       alt: 'A beachside food cart glowing under a rainbow umbrella at night, vendors in silhouette against distant city lights',
     },
     {
       src: 'photography/photo-3.jpg',
+      tag: 'Light painting',
       alt: 'A black-and-white long exposure: a hand-painted toy goods truck circled by swirling trails of light',
     },
     {
       src: 'photography/photo-4.jpg',
+      tag: 'Astro',
       alt: 'The full moon in sharp detail, craters and maria picked out against a black sky',
     },
-  ] as { src: string; alt: string }[],
+  ] as { src: string; tag: string; alt: string }[],
 }

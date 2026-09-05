@@ -1,21 +1,7 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-  type ReactNode,
-} from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import Lenis from 'lenis'
+import { ScrollCtx, type ScrollTo } from './smoothScrollContext'
 
-type ScrollTo = (target: string | number | HTMLElement, opts?: { offset?: number }) => void
-
-const ScrollCtx = createContext<{ scrollTo: ScrollTo }>({ scrollTo: () => {} })
-
-/** Access programmatic smooth-scroll (nav links, CTAs, keyboard shortcuts). */
-export function useSmoothScrollTo() {
-  return useContext(ScrollCtx).scrollTo
-}
 
 /**
  * Wraps the app in Lenis smooth scrolling. Disabled entirely when the user
@@ -95,7 +81,6 @@ export function SmoothScrollProvider({
     }
     document.addEventListener('click', onClick)
     return () => document.removeEventListener('click', onClick)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enabled])
 
   return <ScrollCtx.Provider value={{ scrollTo }}>{children}</ScrollCtx.Provider>

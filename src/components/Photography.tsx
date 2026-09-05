@@ -3,7 +3,8 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Camera, ArrowUpRight } from 'lucide-react'
 import { photography } from '../data/portfolio'
 import { SectionHeading } from './ui/SectionHeading'
-import { Reveal, staggerParent, staggerItem } from './ui/Reveal'
+import { Reveal } from './ui/Reveal'
+import { staggerParent, staggerItem } from '../lib/animations'
 import { Screenshot } from './ui/Screenshot'
 import { PhotoLightbox } from './PhotoLightbox'
 
@@ -28,6 +29,10 @@ export function Photography() {
           title="Photography"
           description="Seeing stories beyond the numbers."
         />
+
+        <Reveal className="-mt-4 mb-8 max-w-2xl text-muted md:text-lg">
+          {photography.note}
+        </Reveal>
 
         {/* Club stats + VSCO link */}
         <Reveal className="mb-8 flex flex-wrap items-center gap-3">
@@ -73,6 +78,9 @@ export function Photography() {
               <div className="h-full w-full [&_img]:transition-transform [&_img]:duration-[700ms] group-hover:[&_img]:scale-[1.06]">
                 <Screenshot src={p.src} alt={p.alt} cover />
               </div>
+              <span className="pointer-events-none absolute left-3 top-3 rounded-full border border-white/20 bg-black/45 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-white/85 backdrop-blur-sm">
+                {p.tag}
+              </span>
               <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/75 to-transparent p-3 font-mono text-[10px] text-white/90 transition-transform duration-300 group-hover:translate-y-0">
                 {p.alt}
               </figcaption>

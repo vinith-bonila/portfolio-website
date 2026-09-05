@@ -9,7 +9,8 @@ import {
 } from 'lucide-react'
 import { about, hero } from '../data/portfolio'
 import { SectionHeading } from './ui/SectionHeading'
-import { Reveal, staggerParent, staggerItem } from './ui/Reveal'
+import { Reveal } from './ui/Reveal'
+import { staggerParent, staggerItem } from '../lib/animations'
 import { ResumeMenu } from './ResumeMenu'
 import { motion } from 'framer-motion'
 
