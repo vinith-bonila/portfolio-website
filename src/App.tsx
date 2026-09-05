@@ -14,6 +14,9 @@ import { useReducedMotion } from './hooks/useReducedMotion'
 const Skills = lazy(() =>
   import('./components/Skills').then((m) => ({ default: m.Skills })),
 )
+const DataViz = lazy(() =>
+  import('./components/DataViz').then((m) => ({ default: m.DataViz })),
+)
 const Experience = lazy(() =>
   import('./components/Experience').then((m) => ({ default: m.Experience })),
 )
@@ -53,6 +56,7 @@ export default function App() {
         <Projects />
         <Suspense fallback={<SectionFallback />}>
           <Skills />
+          <DataViz />
           <Experience />
           <Contact />
         </Suspense>
