@@ -146,7 +146,7 @@ function ProjectCard({
               rel="noreferrer noopener"
               onClick={(e) => e.stopPropagation()}
               aria-label={`Open ${project.title} live demo in a new tab`}
-              className="relative z-20 grid h-7 w-7 place-items-center rounded-full border border-[var(--hairline)] text-muted transition-colors hover:border-accent hover:text-accent"
+              className="relative z-20 grid h-9 w-9 place-items-center rounded-full border border-[var(--hairline)] text-muted transition-colors hover:border-accent hover:text-accent"
             >
               <ExternalLink size={13} />
             </a>
@@ -203,7 +203,7 @@ export function Projects() {
                 onClick={() => setFilter(c)}
                 data-cursor="open"
                 aria-pressed={active}
-                className={`rounded-full border px-4 py-1.5 font-mono text-xs transition-colors ${
+                className={`rounded-full border px-4 py-2.5 font-mono text-xs transition-colors sm:py-1.5 ${
                   active
                     ? 'border-accent bg-accent/10 text-accent'
                     : 'border-[var(--hairline)] text-muted hover:border-accent/50 hover:text-[var(--text)]'

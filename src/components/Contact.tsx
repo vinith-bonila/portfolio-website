@@ -223,13 +223,13 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="flex items-start gap-4">
+          <div className="flex items-start gap-1">
             <a
               href={socials.github}
               target="_blank"
               rel="noreferrer noopener"
               aria-label="GitHub"
-              className="text-muted transition-colors hover:text-accent"
+              className="grid h-11 w-11 place-items-center rounded-lg text-muted transition-colors hover:text-accent"
             >
               <Github size={16} />
             </a>
@@ -238,14 +238,14 @@ export function Contact() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label="LinkedIn"
-              className="text-muted transition-colors hover:text-accent"
+              className="grid h-11 w-11 place-items-center rounded-lg text-muted transition-colors hover:text-accent"
             >
               <Linkedin size={16} />
             </a>
             <a
               href={`mailto:${socials.email}`}
               aria-label="Email"
-              className="text-muted transition-colors hover:text-accent"
+              className="grid h-11 w-11 place-items-center rounded-lg text-muted transition-colors hover:text-accent"
             >
               <Mail size={16} />
             </a>

@@ -101,7 +101,7 @@ export function Photography() {
             target="_blank"
             rel="noreferrer noopener"
             data-cursor="open"
-            className="inline-flex items-center gap-2 font-mono text-sm text-muted transition-colors hover:text-accent"
+            className="inline-flex min-h-[44px] items-center gap-2 py-2 font-mono text-sm text-muted transition-colors hover:text-accent"
           >
             See the full gallery on VSCO
             <ArrowUpRight size={15} />

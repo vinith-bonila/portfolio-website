@@ -82,7 +82,7 @@ export function Hero() {
           </motion.div>
 
           {/* Socials */}
-          <motion.div {...fadeUp(0.48)} className="mt-7 flex items-center gap-5">
+          <motion.div {...fadeUp(0.48)} className="mt-6 flex items-center gap-1">
             {[
               { href: socials.github, label: 'GitHub', Icon: Github },
               { href: socials.linkedin, label: 'LinkedIn', Icon: Linkedin },
@@ -94,7 +94,7 @@ export function Hero() {
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel={href.startsWith('http') ? 'noreferrer noopener' : undefined}
                 aria-label={label}
-                className="text-muted transition-colors hover:text-accent"
+                className="grid h-11 w-11 place-items-center rounded-lg text-muted transition-colors hover:text-accent"
               >
                 <Icon size={20} />
               </a>
