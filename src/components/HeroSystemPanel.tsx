@@ -43,7 +43,7 @@ export function HeroSystemPanel() {
       className="hidden w-full max-w-[320px] justify-self-end font-mono lg:block"
       aria-label="System profile"
     >
-      <div className="overflow-hidden rounded-xl border border-[var(--hairline)] bg-[var(--bg-raise)]/70 backdrop-blur-sm">
+      <div className="overflow-hidden rounded-xl border border-[var(--hairline)] bg-[var(--bg-raise)]/85 backdrop-blur-md">
         {/* Window chrome */}
         <div className="flex items-center gap-2 border-b border-[var(--hairline)] px-4 py-3">
           <span className="h-2.5 w-2.5 rounded-full bg-accent/70" />

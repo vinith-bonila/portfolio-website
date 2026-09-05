@@ -22,7 +22,6 @@ export function Hero() {
       id="home"
       className="relative flex min-h-[100svh] items-center overflow-hidden pt-20"
       aria-label="Introduction"
-      data-cursor="explore"
     >
       <HeroBackground />
       <div className="relative z-10 mx-auto grid w-full max-w-content grid-cols-1 items-center gap-12 px-5 md:px-8 lg:grid-cols-[minmax(0,1fr)_320px]">

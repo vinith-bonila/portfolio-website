@@ -89,14 +89,18 @@ export function Cursor() {
       {/* Lerping ring / label */}
       <div
         ref={ringRef}
-        className="pointer-events-none fixed left-0 top-0 z-[100] flex items-center justify-center rounded-full border border-accent/70 font-mono uppercase text-accent transition-[width,height,background-color] duration-200"
+        className="pointer-events-none fixed left-0 top-0 z-[100] flex items-center justify-center rounded-full border font-mono uppercase transition-[width,height,background-color,border-color] duration-200"
         style={{
-          width: labelled ? 64 : pressed ? 22 : 30,
-          height: labelled ? 64 : pressed ? 22 : 30,
-          marginLeft: labelled ? -32 : -15,
-          marginTop: labelled ? -32 : -15,
-          fontSize: 9,
-          letterSpacing: '0.15em',
+          width: labelled ? 46 : pressed ? 16 : 24,
+          height: labelled ? 46 : pressed ? 16 : 24,
+          marginLeft: labelled ? -23 : pressed ? -8 : -12,
+          marginTop: labelled ? -23 : pressed ? -8 : -12,
+          fontSize: 8,
+          letterSpacing: '0.14em',
+          borderColor: labelled
+            ? 'rgba(45,226,197,0.7)'
+            : 'rgba(45,226,197,0.35)',
+          color: '#2DE2C5',
           backgroundColor: labelled ? 'rgba(45,226,197,0.10)' : 'transparent',
           backdropFilter: labelled ? 'blur(2px)' : 'none',
         }}

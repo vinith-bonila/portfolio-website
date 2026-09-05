@@ -23,8 +23,8 @@
     --text: #EDF0F0;
     --text-muted: #8A9694;
     --hairline: rgba(255, 255, 255, 0.08);
-    --grid-line: rgba(255, 255, 255, 0.035);
-    --noise-opacity: 0.04;
+    --grid-line: rgba(255, 255, 255, 0.015);
+    --noise-opacity: 0.025;
   }
 
   * {
@@ -115,7 +115,18 @@
     background-image:
       linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-    background-size: 64px 64px;
+    background-size: 90px 90px;
+    /* Fade the grid toward the edges so it reads as atmosphere, not a hard net. */
+    -webkit-mask-image: radial-gradient(
+      ellipse 90% 80% at 50% 35%,
+      #000 30%,
+      transparent 95%
+    );
+    mask-image: radial-gradient(
+      ellipse 90% 80% at 50% 35%,
+      #000 30%,
+      transparent 95%
+    );
   }
 
   .texture-bg::before {
