@@ -38,7 +38,12 @@ function ThemeToggle({
   )
 }
 
-/** Switches between the full cinematic experience and a calm, readable view. */
+/**
+ * Switches between the full cinematic experience and a calm, readable view.
+ * Desktop-only: on mobile the WebGL scene is already skipped and Lenis doesn't
+ * take over touch scrolling, so the toggle would change almost nothing while
+ * crowding a small header. OS reduced-motion is still honoured everywhere.
+ */
 function ModeToggle() {
   const { focus, toggle } = useMotionMode()
   return (
@@ -49,7 +54,7 @@ function ModeToggle() {
       data-cursor="open"
       title={focus ? 'Switch to Experience mode' : 'Switch to Focus mode'}
       aria-label={focus ? 'Switch to Experience mode' : 'Switch to Focus mode'}
-      className={`grid h-9 w-9 place-items-center rounded-full border transition-colors ${
+      className={`hidden h-9 w-9 place-items-center rounded-full border transition-colors md:grid ${
         focus
           ? 'border-accent bg-accent/10 text-accent'
           : 'border-[var(--hairline)] bg-[var(--bg-raise)] text-[var(--text)] hover:border-accent hover:text-accent'
