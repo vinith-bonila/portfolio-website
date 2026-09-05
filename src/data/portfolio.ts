@@ -56,9 +56,9 @@ export const systemProfile = {
   title: 'System Profile',
   live: true,
   stats: [
+    { label: 'Live Apps', value: '3', icon: 'server', accent: true, live: true },
     { label: 'Projects', value: '6+', icon: 'folder' },
     { label: 'Technologies', value: '15+', icon: 'cpu' },
-    { label: 'Focus Areas', value: 'Data · AI · Analytics', icon: 'target' },
     {
       label: 'Status',
       value: 'Open to Opportunities',
@@ -70,6 +70,7 @@ export const systemProfile = {
     value: string
     icon: string
     accent?: boolean
+    live?: boolean
   }[],
 }
 

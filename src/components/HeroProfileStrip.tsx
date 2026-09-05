@@ -1,4 +1,11 @@
-import { Folder, Cpu, Target, Activity, type LucideProps } from 'lucide-react'
+import {
+  Folder,
+  Cpu,
+  Target,
+  Activity,
+  Server,
+  type LucideProps,
+} from 'lucide-react'
 import type { ComponentType } from 'react'
 import { systemProfile } from '../data/portfolio'
 
@@ -7,6 +14,7 @@ const ICONS: Record<string, ComponentType<LucideProps>> = {
   cpu: Cpu,
   target: Target,
   activity: Activity,
+  server: Server,
 }
 
 /**
@@ -42,10 +50,16 @@ export function HeroProfileStrip() {
                 {s.label}
               </dt>
               <dd
-                className={`mt-1.5 font-mono text-sm font-medium ${
+                className={`mt-1.5 flex items-center gap-1.5 font-mono text-sm font-medium ${
                   s.accent ? 'text-accent' : 'text-[var(--text)]'
                 }`}
               >
+                {s.live && (
+                  <span className="relative flex h-1.5 w-1.5" aria-hidden="true">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                    <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
+                  </span>
+                )}
                 {s.value}
               </dd>
             </div>

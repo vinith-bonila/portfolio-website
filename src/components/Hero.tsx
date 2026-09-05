@@ -28,7 +28,7 @@ export function Hero() {
       {/* Ambient glow (the full 3D lives in the right column, not the bg) */}
       <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-12 px-6 md:px-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-20">
+      <div className="relative z-10 mx-auto grid w-full max-w-[1600px] grid-cols-1 items-center gap-12 px-6 md:px-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-24 2xl:px-16">
         {/* ── Identity (60%) ── */}
         <div>
           <motion.p {...fadeUp(0.05)} className="eyebrow flex items-center gap-3">

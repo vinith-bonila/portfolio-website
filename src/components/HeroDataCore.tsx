@@ -58,7 +58,7 @@ export function HeroDataCore() {
   const pos = positions()
 
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[620px]">
+    <div className="relative mx-auto aspect-square w-full max-w-[700px]">
       {/* 3D globe (or CSS fallback) */}
       <div className="absolute inset-0">
         {use3D ? (
