@@ -185,7 +185,7 @@ export function ContactForm() {
             setMessage(e.target.value)
             clearError('message')
           }}
-          placeholder="Hi Vinith — we're hiring for a Data Analyst role and your DocMind project caught our eye…"
+          placeholder="Hi Vinith — we’re hiring for an AI Product Engineer role, and your AutoBI and DocMind projects really caught our eye. Your AI product work is particularly impressive…"
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? 'cf-message-err' : undefined}
           className={`${fieldClass(errors.message)} resize-y`}
