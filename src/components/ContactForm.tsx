@@ -128,7 +128,7 @@ export function ContactForm() {
               setName(e.target.value)
               clearError('name')
             }}
-            placeholder="Jane Doe"
+            placeholder="Rohit"
             autoComplete="name"
             aria-invalid={!!errors.name}
             aria-describedby={errors.name ? 'cf-name-err' : undefined}
@@ -156,7 +156,7 @@ export function ContactForm() {
               setEmail(e.target.value)
               clearError('email')
             }}
-            placeholder="jane@company.com"
+            placeholder="Rohit@company.com"
             autoComplete="email"
             aria-invalid={!!errors.email}
             aria-describedby={errors.email ? 'cf-email-err' : undefined}

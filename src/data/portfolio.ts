@@ -21,7 +21,6 @@ export const nav: NavItem[] = [
 export const site = {
   name: 'Vinith Bonila',
   role: 'Data & AI/ML Engineer',
-  resumeUrl: '/resume.pdf',
 }
 
 export const socials = {
@@ -49,7 +48,7 @@ export const hero = {
   location: 'Visakhapatnam, India · open to relocation',
   ctas: {
     primary: { label: 'View Projects', target: 'projects' },
-    secondary: { label: 'Download Resume', href: '/resume.pdf' },
+    secondary: { label: 'Download Resume' },
   },
   /** Role-tailored resumes offered from the Download Resume dropdown. */
   resumes: [
