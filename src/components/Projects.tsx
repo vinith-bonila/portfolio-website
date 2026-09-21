@@ -189,7 +189,7 @@ export function Projects() {
           index="01"
           eyebrow="Selected Work"
           title="Projects that ship — from retrieval pipelines to reservoirs."
-          description="Two live LLM systems, a live BI platform, and analytics/simulation work. Filter by area, then open any card for the full breakdown."
+          description="Three live AI systems, a live BI platform, and analytics/simulation work. Filter by area, then open any card for the full breakdown."
         />
 
         {/* Filter chips */}

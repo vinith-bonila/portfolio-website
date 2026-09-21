@@ -44,7 +44,7 @@ export const hero = {
     'Petroleum Engineer',
   ],
   tagline: 'Builds and deploys AI/ML systems end to end.',
-  sub: 'Python developer and Petroleum Engineering graduate building and deploying end-to-end AI/ML applications. Two live LLM apps backed by FastAPI, Docker, automated tests, and CI — plus upstream oil & gas domain experience from ONGC.',
+  sub: 'Python developer and Petroleum Engineering graduate building and deploying end-to-end AI/ML applications. Three live AI apps backed by FastAPI, Docker, automated tests, and CI — plus upstream oil & gas domain experience from ONGC.',
   location: 'Visakhapatnam, India · open to relocation',
   ctas: {
     primary: { label: 'View Projects', target: 'projects' },
@@ -62,8 +62,8 @@ export const systemProfile = {
   title: 'System Profile',
   live: true,
   stats: [
-    { label: 'Live Apps', value: '3', icon: 'server', accent: true, live: true },
-    { label: 'Projects', value: '6+', icon: 'folder' },
+    { label: 'Live Apps', value: '4', icon: 'server', accent: true, live: true },
+    { label: 'Projects', value: '7', icon: 'folder' },
     { label: 'Technologies', value: '15+', icon: 'cpu' },
     {
       label: 'Status',
@@ -99,7 +99,7 @@ export const heroNodes: {
 export const about = {
   intro: [
     "I'm Vinith — a Python developer and Petroleum Engineering graduate who builds and deploys end-to-end AI/ML and data products.",
-    'I ship: two live LLM apps and a live BI platform, backed by FastAPI, Docker, automated tests, and CI. And I turn messy, multi-table data into decisions with SQL, Power BI, and Python.',
+    'I ship: three live AI apps and a live BI platform, backed by FastAPI, Docker, automated tests, and CI. And I turn messy, multi-table data into decisions with SQL, Power BI, and Python.',
   ],
   facets: [
     {
@@ -110,7 +110,7 @@ export const about = {
     {
       key: 'AI / ML',
       icon: 'brain',
-      desc: 'RAG, LLMs, embeddings, and evaluation (recall@k, MRR, faithfulness). Two live LLM apps served via FastAPI, containerised with Docker.',
+      desc: 'RAG, LLMs, embeddings, and evaluation (recall@k, MRR, faithfulness). Three live AI apps served via FastAPI, including a self-distilling LLM agent.',
     },
     {
       key: 'Analytics',
@@ -180,6 +180,55 @@ export type Project = {
 }
 
 export const projects: Project[] = [
+  {
+    id: 'self-distilling-agent',
+    title: 'Self-Distilling Agent',
+    subtitle: 'Payment Recovery · An LLM that writes its own rules',
+    year: '2026',
+    categories: ['AI / ML'],
+    live: 'https://self-distilling-payment-recovery-agent.onrender.com/playground#razorpay',
+    repo: 'https://github.com/vinith-bonila/self-distilling-payment-recovery-agent',
+    stack: [
+      'Python',
+      'FastAPI',
+      'LLM agents',
+      'Rule engine',
+      'Razorpay API',
+      'Webhooks (HMAC)',
+      'Render',
+    ],
+    summary:
+      'An LLM that writes the rules that replace it. Known payment failures resolve with zero LLM calls; only new or ambiguous cases reach the agent — cutting LLM traffic ~38% at the same recovery rate.',
+    details: [
+      'Built a payment-recovery agent that checks validated rules first: known failure cases are resolved instantly with zero LLM calls, and only new or ambiguous cases escalate to an LLM agent.',
+      'Designed the self-distillation loop: when the agent keeps making the same successful decision, that behaviour becomes a candidate rule that must first prove itself in shadow mode (evaluated without acting) before it is allowed to act.',
+      'Routed every action — from a rule or the LLM — through a single guarded executor: duplicate/idempotency protection, mandatory human approval above ₹5,000, and spending limits.',
+      'In an offline evaluation on synthetic data, cut LLM traffic by about 38% (from 90.6% to 55.9% of cases) with the same measured recovery rate.',
+      'Built on FastAPI with 274 automated tests and deployed on Render, with a live playground running in Razorpay test mode behind signed, HMAC-SHA256-verified webhooks — no real money is moved.',
+    ],
+    metrics: [
+      { label: 'Automated tests', value: 274 },
+      { label: 'LLM traffic cut', value: 38, prefix: '~', suffix: '%' },
+      { label: 'LLM share before', value: 90.6, decimals: 1, suffix: '%' },
+      { label: 'LLM share after', value: 55.9, decimals: 1, suffix: '%' },
+    ],
+    highlights: ['~38% fewer LLM calls', '274 tests'],
+    architecture: [
+      'Failed payment (signed webhook)',
+      'Verify signature — HMAC-SHA256',
+      'Policy router — check validated rules',
+      'Known case → rule  ·  New case → LLM agent',
+      'Guardrails — idempotency, approval ≥ ₹5,000, spend cap',
+      'Outcome ledger + trajectory',
+      'Repeated wins → shadow-tested → promoted to rule',
+    ],
+    images: [
+      'sda-decision-core.png',
+      'sda-overview.png',
+      'sda-trace.png',
+      'sda-integration.png',
+    ],
+  },
   {
     id: 'docmind',
     title: 'DocMind',
@@ -520,8 +569,8 @@ export type ProofStat = {
 
 /** The count-up "proof of work" band directly under the hero. */
 export const proofOfWork: ProofStat[] = [
-  { value: 3, pad: 2, label: 'Live apps' },
-  { value: 265, suffix: '+', label: 'Automated tests' },
+  { value: 4, pad: 2, label: 'Live apps' },
+  { value: 539, suffix: '+', label: 'Automated tests' },
   { value: 19, label: 'NLP intents' },
   { value: 15, suffix: '+', label: 'Skill handlers' },
   { value: 1, pad: 2, label: 'Petroleum domain' },
